@@ -1,27 +1,48 @@
 <script setup>
  import { RouterLink, RouterView } from 'vue-router'
+ import Modal from "./components/Modal.vue"
+ import Headerc from "./components/Headerc.vue"
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">news</RouterLink>
-        <RouterLink to="/search">search</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <!-- nav -->
+  <div id="bigNav">
+  <Headerc/>
+  </div>
+  <div id="smallNav">
+    <button @click="openSmallNav"><p>menu</p></button>
+    <div class="smalMenu" v-if="open">
+      <Headerc/>
     </div>
-  </header>
+  </div>
+  <!--     -->
   <RouterView />
+  <div v-if="showModal">
+  <Modal :header="header" :text="text" :theme="theme" @close="closeModal"/>
+  </div>
 </template>
 <script>
-
 export default {
   name: 'App',
   data(){
     return {
-      title: "dsdas"
+      open: false,
+      header: "hello in news world",
+      text: "nice to meet you",
+      theme: "welcome",
+      showModal: true,
+      components: { Modal },
+      components: { Headerc },
     }
+  },
+  Methods: {
+    openSmallNav(){
+      this.open = !this.open;
+      // console.log(open)
+    },
+    closeModal(){
+      showModal = false
+    },
   }
 
 }
@@ -31,7 +52,15 @@ export default {
 
 
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
+  #bigNav{
+    display: none;
+  }
+}
 
+@media (min-width: 1025px) {
+  #smallNav{
+    display: none;
+  }
 }
 </style>
