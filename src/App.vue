@@ -30,7 +30,7 @@ export default {
       header: "hello in news world",
       text: "nice to meet you",
       theme: "welcome",
-      showModal: true,
+      showModal: false,
       components: { Modal },
       components: { Headerc },
     }
@@ -41,7 +41,8 @@ export default {
       // console.log(open)
     },
     closeModal(){
-      showModal = false
+      console.log("odebrane")
+      this.showModal = false
     },
   }
 

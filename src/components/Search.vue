@@ -1,19 +1,6 @@
-<script>
-export default{
-    date(){
-        return{
-            searchValue: 'ss',
-            count: 0
-        }
-    },
-    methods: {
-        handleInput(){
-            console.log(this.searchValue)
-        }
-    } 
-
-}
-
+<script setup>
+import axios from 'axios';
+import debounce from 'https://unpkg.com/vue-debounce@3.0.2/dist/debounce.min.mjs';
 </script>
 
 <template>
@@ -28,8 +15,42 @@ export default{
         @input="handleInput"
         />
     </div>
+        <ul>
+            <li v-for="item in resaults" :key="item">
+                <p>{{item.web_url}}</p>
+                <p>lala</p>
+            </li>
+        </ul>
 </div>
 </template>
+
+<script>
+const API = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
+
+export default{
+    date(){
+        return{
+            searchValue: '',
+            resaults: [],
+        }
+    },
+    methods: {
+        handleInput: debounce(function() {
+            axios.get(`${API}?q=${this.searchValue}&api-key=Kof5INvpL8S7hc1CF9VVVtlBa08rYd6G`)
+                .then((response) => {
+                    this.resaults = response.data.response.docs
+                    console.log(response.data.response.docs)
+                    // console.log(this.searchValue)
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }, 1000),
+    },
+
+}
+
+</script>
 
 
 <style scoped>

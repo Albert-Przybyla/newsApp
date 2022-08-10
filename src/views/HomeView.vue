@@ -1,10 +1,10 @@
 <script setup>
- import Test from "@/components/Test.vue"
+ import News from "@/components/News.vue"
 </script>
 
 <template>
   <main>
-    <Test/>
+    <News/>
   </main>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   name: 'App',
   data(){
     return {
-      components: { Test },
+      components: { News },
     }
   }
 }

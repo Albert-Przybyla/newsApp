@@ -15,6 +15,7 @@
     methods: {
         closeModal(){
             this.$emit('close');
+            console.log('emitowanie')
         }
     }
 
