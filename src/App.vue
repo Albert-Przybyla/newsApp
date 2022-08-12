@@ -30,7 +30,7 @@ export default {
       header: "hello in news world",
       text: "nice to meet you",
       theme: "welcome",
-      showModal: false,
+      showModal: true,
       components: { Modal },
       components: { Headerc },
     }

@@ -1,10 +1,6 @@
-<script setup>
- import News from "@/components/News.vue"
-</script>
-
 <template>
   <main>
-    <News/>
+    {{kot}}
   </main>
 </template>
 
@@ -13,7 +9,7 @@ export default {
   name: 'App',
   data(){
     return {
-      components: { News },
+      kot: 'dddd',
     }
   }
 }
