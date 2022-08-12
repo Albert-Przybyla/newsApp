@@ -25,12 +25,11 @@
 
 <style scoped>
     .modal{
-        width: 400px;
+        width: 80%;
         padding: 20px;
-        margin: 100px auto;
         background: #222;
         border-radius: 10px; 
-        text-align: center;   
+        text-align: center; 
     }
 
     .modal.welcome {
@@ -40,6 +39,7 @@
 
     .modal.welcome h2{
         font-size: 1.8em;
+        margin-bottom: 20px;  
     }
 
     .backdrop {
@@ -48,5 +48,8 @@
         background: rgba(0,0,0,0.5);
         width: 100%;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
