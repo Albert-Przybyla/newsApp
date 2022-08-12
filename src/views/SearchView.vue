@@ -15,12 +15,17 @@ import debounce from 'https://unpkg.com/vue-debounce@3.0.2/dist/debounce.min.mjs
         @input="handleInput"
         />
     </div>
+    <div v-if="searchValue.length>0" class="searchContent">
         <ul>
             <li v-for="article in articles" :key="article._id">
                 <a href="{{article.web_url}}">{{article.headline.main}}</a>
             </li>
 
         </ul>
+        </div>
+    <div v-else class="searchContent">
+        <p>type something to find the article</p>
+    </div>
 </main>
 </template>
 
@@ -45,25 +50,18 @@ export default {
                 .catch((error) => {
                     console.log(error)
                 })
-        }, 1000)
+        }, 500)
   }
 }
 </script>
 
 <style scoped>
-    main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-        padding: 30px;
-        width: 100%;
-    }
 
     .search{
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 80%;
+        height: 20vh;
     }
 
     input{
@@ -82,6 +80,12 @@ export default {
 
     label {
         font-family: Montserrat, sans-serif;
+    }
+
+    .searchContent{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
 
 </style>

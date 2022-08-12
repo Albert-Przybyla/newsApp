@@ -1,6 +1,6 @@
 # newsApp
 
-This template should help get you started developing with Vue 3 in Vite.
+web application to search and view news available on the NYtimes website
 
 ## Recommended IDE Setup
 

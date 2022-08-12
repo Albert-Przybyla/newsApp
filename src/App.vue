@@ -1,24 +1,14 @@
 <script setup>
  import { RouterLink, RouterView } from 'vue-router'
  import Modal from "./components/Modal.vue"
- import Headerc from "./components/Headerc.vue"
+ import home from "./components/home.vue"
 </script>
 
 <template>
-  <!-- nav -->
-  <div id="bigNav">
-  <Headerc/>
-  </div>
-  <div id="smallNav">
-    <button @click="openSmallNav"><p>menu</p></button>
-    <div class="smalMenu" v-if="open">
-      <Headerc/>
-    </div>
-  </div>
-  <!--     -->
+  <home/>
   <RouterView />
   <div v-if="showModal">
-  <Modal :header="header" :text="text" :theme="theme" @close="closeModal"/>
+  <Modal :header="header" :text="text" :theme="theme" @close="showModal = false"/>
   </div>
 </template>
 <script>
@@ -32,36 +22,29 @@ export default {
       theme: "welcome",
       showModal: true,
       components: { Modal },
-      components: { Headerc },
     }
   },
   Methods: {
     openSmallNav(){
       this.open = !this.open;
       // console.log(open)
-    },
-    closeModal(){
-      console.log("odebrane")
-      this.showModal = false
-    },
+    }
   }
 
 }
 </script>
 
-<style scoped>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;600&display=swap');
 
-
-
-@media (max-width: 1024px) {
-  #bigNav{
-    display: none;
+  * {
+    box-sizing: border-box;
   }
-}
 
-@media (min-width: 1025px) {
-  #smallNav{
-    display: none;
+  body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
   }
-}
+
 </style>

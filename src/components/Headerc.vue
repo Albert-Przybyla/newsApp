@@ -1,16 +1,18 @@
 <template>
-    <header>
-    <div class="wrapper">
       <nav>
         <RouterLink to="/">news</RouterLink>
         <RouterLink to="/search">search</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
-    </div>
-  </header>
 </template>
 
-<script>
-
-
-</script>
+<style scoped>
+  nav{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2em;
+}
+</style>
