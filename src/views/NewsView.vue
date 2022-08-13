@@ -34,7 +34,7 @@ export default {
           axios.get(`${API}${this.selected}.json?api-key=Kof5INvpL8S7hc1CF9VVVtlBa08rYd6G`)
               .then((response) => {
                   this.articles = response.data.results
-                  console.log(response)
+                  console.log(response.data.results)
               })
               .catch((error) => {
                   console.log(error)

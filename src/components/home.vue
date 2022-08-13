@@ -7,10 +7,35 @@
     <header>
     <claim/>
 
-      <Headerc/>
+      <Headerc :sticky="sticky === true"/>
     </header>
 </template>
 
+<script>
+export default {
+  name: "App",
+  data(){
+    return {
+        sticky: false
+    }
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll(event) {
+        if(scrollY>=screen.height * 0.85){
+            this.sticky = true
+        }else{
+            this.sticky = false
+        }
+    },
+  },
+};
+</script>
 
 <style scoped>
     header {

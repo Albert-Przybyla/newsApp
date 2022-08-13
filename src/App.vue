@@ -16,7 +16,6 @@ export default {
   name: 'App',
   data(){
     return {
-      open: false,
       header: "hello in news world",
       text: "nice to meet you",
       theme: "welcome",
@@ -25,11 +24,8 @@ export default {
     }
   },
   Methods: {
-    openSmallNav(){
-      this.open = !this.open;
-      // console.log(open)
-    }
-  }
+
+  },
 
 }
 </script>

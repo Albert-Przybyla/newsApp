@@ -5,25 +5,22 @@ import debounce from 'https://unpkg.com/vue-debounce@3.0.2/dist/debounce.min.mjs
 
 <template>
 <main>
-    <div class="search">
-        <label for="search">Search:</label>
+    <div id="search">
         <input
         type="text"
         name="search"
-        placeholder="np. Biden"
+        placeholder="np. Ukraine"
         v-model="searchValue"
         @input="handleInput"
         />
     </div>
-    <div v-if="searchValue.length>0" class="searchContent">
-        <ul>
-            <li v-for="article in articles" :key="article._id">
-                <a href="{{article.web_url}}">{{article.headline.main}}</a>
-            </li>
-
-        </ul>
+    <div v-if="searchValue.length>0" class="articleBox">
+            <div v-for="article in articles" :key="article._id" class="articleItem">
+                <h3>{{article.headline.main}}</h3>
+                <p>{{article.load_paragraph}}</p>
+            </div>
         </div>
-    <div v-else class="searchContent">
+    <div v-else class="articleBox">
         <p>type something to find the article</p>
     </div>
 </main>
@@ -57,35 +54,62 @@ export default {
 
 <style scoped>
 
-    .search{
+    #search{
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: 250px;
         height: 20vh;
     }
 
     input{
         height: 50px;
         border: none;
-        border-bottom: 3px solid black;
+        border-bottom: 3px solid var(--color-text);
         font-size: 2em;
         background: var(--color-background);
         color: white;
+        transition: box-shadow .5s;
     }
 
     input:focus{
-        border: none;
-        border-bottom: 3px solid black;
+        outline: none;
+        /* box-shadow: 5px 5px 20px -8px var(--color-text); */
     }
 
-    label {
-        font-family: Montserrat, sans-serif;
-    }
-
-    .searchContent{
+    .articleBox{
         display: flex;
         justify-content: center;
         align-items: flex-start;
+    }
+
+    @media (min-width: 760px){
+        #search{
+            width: 350px;
+        }
+
+        .articleBox{
+            font-size: 25px;
+        }
+    }
+
+    @media (min-width: 1024px){
+        #search{
+            width: 400px;
+        }
+
+        .articleBox{
+            font-size: 25px;
+        }
+    }
+
+    @media (min-width: 2524px){
+        #search{
+            margin-top: 50px;
+            width: 650px;
+        }
+        .articleBox{
+            font-size: 30px;
+        }
     }
 
 </style>

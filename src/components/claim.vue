@@ -35,4 +35,43 @@
         background: var(--color-background);
         padding: 0 6px 0 6px;
     }
+
+    @media (min-width: 760px){
+        .claim{
+            font-size: 70px;
+        }
+
+        .subclaim{
+            font-size: 30px;
+        }
+    }
+
+        @media (min-width: 760px){
+        .claim{
+            font-size: 70px;
+        }
+
+        .subclaim{
+            font-size: 25px;
+        }
+
+        .wrapper{
+            height: 85%;
+        }
+    }
+
+    @media (min-width: 2524px){
+        .claim{
+            font-size: 80px;
+        }
+
+        .subclaim{
+            font-size: 30px;
+        }
+
+        .wrapper{
+            height: 90%;
+        }
+    
+    }
 </style>
