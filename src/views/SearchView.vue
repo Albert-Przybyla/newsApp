@@ -1,6 +1,7 @@
 <script setup>
 import axios from 'axios';
 import debounce from 'https://unpkg.com/vue-debounce@3.0.2/dist/debounce.min.mjs';
+import Item from '@/components/Item.vue';
 </script>
 
 <template>
@@ -14,15 +15,20 @@ import debounce from 'https://unpkg.com/vue-debounce@3.0.2/dist/debounce.min.mjs
         @input="handleInput"
         />
     </div>
+    <transition>
     <div v-if="searchValue.length>0" class="articleBox">
-            <div v-for="article in articles" :key="article._id" class="articleItem">
-                <h3>{{article.headline.main}}</h3>
-                <p>{{article.load_paragraph}}</p>
-            </div>
+            <!-- <div v-for="item in articles" :key="item._id" class="articleItem">
+                <h3>{{item.headline.main}}</h3>
+                <p>{{item.load_paragraph}}</p>
+                <p>{{item.byline.original}}</p>
+                <span>item.web_url</span>
+            </div> -->
+            <Item v-for="item in articles" :key="item._id" :web = "item.web_url" :headLine = "item.headline.main" :content = "item.lead_paragraph" :author = "item.byline.original"/>
         </div>
     <div v-else class="articleBox">
         <p>type something to find the article</p>
     </div>
+    </transition>
 </main>
 </template>
 
@@ -34,7 +40,7 @@ export default {
   data(){
     return {
         searchValue: '',
-        articles: [],
+        articles: [], 
     }
   },
   methods: {
@@ -47,7 +53,7 @@ export default {
                 .catch((error) => {
                     console.log(error)
                 })
-        }, 500)
+        }, 1000)
   }
 }
 </script>
@@ -77,9 +83,10 @@ export default {
     }
 
     .articleBox{
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-gap: 6vw;
     }
 
     @media (min-width: 760px){
@@ -99,6 +106,7 @@ export default {
 
         .articleBox{
             font-size: 25px;
+            grid-template-columns: 1fr 1fr;
         }
     }
 
@@ -109,6 +117,7 @@ export default {
         }
         .articleBox{
             font-size: 30px;
+            grid-template-columns: 1fr 1fr 1fr;
         }
     }
 

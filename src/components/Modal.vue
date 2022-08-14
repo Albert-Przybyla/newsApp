@@ -15,7 +15,6 @@
     methods: {
         closeModal(){
             this.$emit('close');
-            console.log('emitowanie')
         }
     }
 
@@ -30,16 +29,19 @@
         background: #222;
         border-radius: 10px; 
         text-align: center; 
+        z-index: 2;
     }
 
     .modal.welcome {
         color: white;
         font-family: 'Courier New', Courier, monospace;
+        z-index: 2;
     }
 
     .modal.welcome h2{
         font-size: 1.8em;
         margin-bottom: 20px;  
+        z-index: 2;
     }
 
     .backdrop {
@@ -51,5 +53,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 2;
     }
 </style>
