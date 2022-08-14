@@ -1,26 +1,27 @@
 <template>
 
-    <div class="item" >
-        <h2>{{headLine}}</h2>
-        <p>{{content}}</p>
-        <a :href="web">full article available here</a>
-        <i>by: {{author}}</i>
+    <div class="item">
     </div>
 
 </template>
 
 <script>
 export default {
-  name: "item",
-    props: ['web', 'headLine', 'content', 'author'],
+  name: "homeItem",
+    props: {
+        item:{
+            type: Object,
+            required: true,
+        }
+    },
 }
 </script>
 
 
 <style scoped>
     .item{
-        width: 80vw;
-        min-height: 80vw;
+        width: 300px;
+        min-height: 300px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

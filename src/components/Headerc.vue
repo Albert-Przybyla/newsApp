@@ -27,7 +27,7 @@
   align-items: center;
   font-size: 2em;
   z-index: 1;
-  background: var(--vt-c-black);
+  background: var(--color-background);
   transition: .2s ease-out;
 }
 
