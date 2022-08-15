@@ -1,26 +1,18 @@
 <script setup>
  import { RouterLink, RouterView } from 'vue-router'
- import Modal from "./components/Modal.vue"
  import home from "./components/home.vue"
 </script>
+
 
 <template>
   <home/>
   <RouterView />
-  <div v-if="showModal">
-  <Modal :header="header" :text="text" :theme="theme" @close="showModal = false"/>
-  </div>
 </template>
 <script>
 export default {
   name: 'App',
   data(){
     return {
-      header: "hello in news world",
-      text: "nice to meet you",
-      theme: "welcome",
-      showModal: true,
-      components: { Modal },
     }
   },
   Methods: {

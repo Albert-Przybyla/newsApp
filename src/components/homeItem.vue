@@ -1,7 +1,17 @@
 <template>
 
-    <div class="item" :style="style">
-
+    <div 
+    class="item" 
+    :style="style" 
+    @mouseover="show=true" 
+    @mouseleave="show=false"
+    >
+        <div v-if="show" class="title">
+            <p>{{item.title}}</p>
+        </div>
+        <div class="titleMini">
+            <p>{{item.title}}</p>
+        </div>
     </div>
 
 </template>
@@ -15,6 +25,11 @@ export default {
             required: true,
         }
     },
+    data(){
+        return{
+            show: false
+        }
+    },
     computed: {
       style () {
         return 'background-image: url(' +  this.item.multimedia[1].url + ');'
@@ -26,26 +41,62 @@ export default {
 
 <style scoped>
     .item{
-        width: 300px;
-        min-height: 300px;
+        width: 80vw;
+        height: 80vw;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50%;
     }
 
-    .item h2{
-        margin: 10px 0 10px 0;
+    .title {
+        display: none;
     }
 
-    .item p{
-        margin: 0 5px 5px 5px;
-    }
-
-
-    .item i {
-        margin: 5px 0 10px 0;
+    .titleMini{
+        margin-top: 60%;
         width: 100%;
-        text-align: right;
+        height: 40%;
+        background-color: var(--color-background);
+        opacity: 0.9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    @media (min-width: 760px){
+        .item{
+            width: 40vw;
+            height: 40vw;
+        }
+    }
+
+    @media (min-width: 1024px){
+        .titleMini{
+            display: none;
+        }
+
+        .item{
+            width: 25vw;
+            height: 25vw;
+        }
+
+        .title{
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-background);
+        opacity: 0.9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .title p{
+        width: 60%;
+        font-size: 30px;
+        text-align: center;
+        }
     }
 
 </style>

@@ -5,7 +5,6 @@
         <p>{{content}}</p>
         <a :href="web">full article available here</a>
         <i>by: {{author}}</i>
-        <img :src="photo" :alt="headLine">
     </div>
 
 </template>

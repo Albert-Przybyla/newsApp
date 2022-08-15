@@ -27,7 +27,7 @@ main{
 .v-enter-active,
 .v-leave-active {
   transition: opacity .5s  ease;
-  
+
 }
 
 .v-enter-from,
@@ -36,6 +36,7 @@ main{
 }
 
 .lds-roller {
+  margin-top: 100px;
   display: inline-block;
   /* position: relative; */
   width: 80px;

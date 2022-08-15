@@ -6,7 +6,6 @@ import Item from '@/components/Item.vue';
 
 <template>
 <main>
-    <div id="search">
         <input
         type="text"
         name="search"
@@ -14,7 +13,6 @@ import Item from '@/components/Item.vue';
         v-model="searchValue"
         @input="handleInput"
         />
-    </div>
     <transition>
     <div v-if="!searchValue" class="emptyBox">
         <p>type something to find the article</p>
@@ -61,15 +59,10 @@ export default {
 
 <style scoped>
 
-    #search{
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        height: 20vh;
-    }
-
     input{
         height: 50px;
+        width: 250px;
+        margin: 50px;
         border: none;
         border-bottom: 3px solid var(--color-text);
         font-size: 2em;
@@ -92,7 +85,7 @@ export default {
     }
 
     @media (min-width: 760px){
-        #search{
+        input{
             width: 350px;
         }
 
@@ -102,7 +95,7 @@ export default {
     }
 
     @media (min-width: 1024px){
-        #search{
+        input{
             width: 400px;
         }
 
@@ -117,7 +110,7 @@ export default {
     }
 
     @media (min-width: 2524px){
-        #search{
+        input{
             margin-top: 50px;
             width: 650px;
         }
