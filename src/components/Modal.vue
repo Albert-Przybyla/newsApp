@@ -26,14 +26,15 @@
     .modal{
         width: 80%;
         padding: 20px;
-        background: #222;
+        background: var(--color-background);
         border-radius: 10px; 
+        border: 2px solid var(--color-text);
         text-align: center; 
         z-index: 2;
     }
 
     .modal.welcome {
-        color: white;
+        color: var(--color-text);
         font-family: 'Courier New', Courier, monospace;
         z-index: 2;
     }

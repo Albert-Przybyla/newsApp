@@ -23,7 +23,7 @@ import Item from '@/components/Item.vue';
         <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
     <div v-else-if="searchValue && !loading" class="articleBox">
-        <Item v-for="item in articles" :key="item._id" :web = "item.web_url" :headLine = "item.headline.main" :content = "item.lead_paragraph" :author = "item.byline.original"/>
+        <Item v-for="item in articles" :key="item._id" :web = "item.web_url" :headLine = "item.headline.main" :content = "item.lead_paragraph" :author = "item.byline.original" :photo = "item.multimedia[0]"/>
     </div>
 
     </transition>
@@ -88,6 +88,7 @@ export default {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        transition-delay: .8s;
     }
 
     @media (min-width: 760px){

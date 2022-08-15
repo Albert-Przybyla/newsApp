@@ -1,6 +1,7 @@
 <template>
 
-    <div class="item">
+    <div class="item" :style="style">
+
     </div>
 
 </template>
@@ -14,6 +15,11 @@ export default {
             required: true,
         }
     },
+    computed: {
+      style () {
+        return 'background-image: url(' +  this.item.multimedia[1].url + ');'
+      }
+    },
 }
 </script>
 
@@ -22,11 +28,9 @@ export default {
     .item{
         width: 300px;
         min-height: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        border-bottom: 1px solid var(--color-text);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50%;
     }
 
     .item h2{

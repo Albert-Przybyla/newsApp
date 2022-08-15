@@ -5,6 +5,7 @@
         <p>{{content}}</p>
         <a :href="web">full article available here</a>
         <i>by: {{author}}</i>
+        <img :src="photo" :alt="headLine">
     </div>
 
 </template>
@@ -12,7 +13,7 @@
 <script>
 export default {
   name: "item",
-    props: ['web', 'headLine', 'content', 'author'],
+    props: ['web', 'headLine', 'content', 'author' , 'photo'],
 }
 </script>
 
@@ -20,7 +21,7 @@ export default {
 <style scoped>
     .item{
         width: 80vw;
-        min-height: 80vw;
+        min-height: 40vw;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
