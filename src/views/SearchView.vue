@@ -1,7 +1,7 @@
 <script setup>
 import axios from 'axios';
 import debounce from 'https://unpkg.com/vue-debounce@3.0.2/dist/debounce.min.mjs';
-import Item from '@/components/Item.vue';
+import Item from '@/components/item.vue';
 </script>
 
 <template>
