@@ -20,7 +20,7 @@ export default {
 <style scoped>
     .item{
         width: 80vw;
-        min-height: 40vw;
+        min-height: 30vw;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -41,6 +41,21 @@ export default {
         margin: 5px 0 10px 0;
         width: 100%;
         text-align: right;
+    }
+
+    @media (min-width: 1024px){
+        .item{
+            width: 40vw;
+            min-height: 15vh;
+            border: none
+        }
+    }
+
+        @media (min-width: 2524px){
+        .item{
+            width: 30vw;
+        
+        }
     }
 
 </style>

@@ -79,7 +79,7 @@ export default {
     .articleBox{
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         transition-delay: .8s;
     }
@@ -103,9 +103,8 @@ export default {
             font-size: 25px;
             grid-template-columns: 1fr 1fr;
             display: grid;
-            width: 100%;
-            grid-template-columns: 1fr;
-            grid-gap: 6vw;
+            width: 90%;
+            grid-gap: 20px;
         }
     }
 
